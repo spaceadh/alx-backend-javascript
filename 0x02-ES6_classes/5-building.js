@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 export default class Building {
-    constructor(sqft = 0) {
-      if (this.constructor !== Building
-          && typeof this.evacuationWarningMessage !== 'function') {
-        throw new Error('Class extending Building must override evacuationWarningMessage');
-      }
-  
-      this._sqft = sqft;
+  constructor(sqft = 0) {
+    if (this.constructor !== Building
+        && typeof this.evacuationWarningMessage !== 'function') {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
-  
-    get sqft() {
-      return this._sqft;
-    }
+
+    this._sqft = sqft;
   }
+
+  get sqft() {
+    return this._sqft;
+  }
+}
