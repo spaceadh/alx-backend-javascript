@@ -1,20 +1,33 @@
 #!/usr/bin/env node
 
+/* Eslint could kill me here */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-sequences */
+
+/*
+ * Lets go dig some graves
+*/
+
 export default class HolbertonCourse {
   constructor(name, length, students) {
-      if (typeof name !== 'string') {
+    if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
-      } else if (typeof length !== 'number') {
+    }
+    if (!Number.isInteger(length)) {
       throw new TypeError('Length must be a number');
-      } else if (!Array.isArray(students)) {
-      throw new TypeError('Students must be an array of strings');
-      }
-
-      this._name = name;
-      this._length = length;
-      this._students = students;
+    }
+    if (!Array.isArray(students)) {
+      throw new TypeError('Students must be an array');
+    }
+    this._name = name,
+    this._length = length;
+    this._students = students;
   }
 
+  /* define the getters for the class */
   get name() {
     return this._name;
   }
@@ -27,24 +40,28 @@ export default class HolbertonCourse {
     return this._students;
   }
 
-  set name(name) {
-    if (typeof name !== 'string') {
+  /*
+    * Settters used to trip me up,
+    * or should I say, set me up
+  */
+  set name(newName) {
+    if (typeof newName !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    this._name = name;
+    this._name = newName;
   }
 
-  set length(length) {
-    if (typeof length !== 'number') {
+  set length(newlength) {
+    if (typeof newlength !== 'number') {
       throw new TypeError('Length must be a number');
     }
-    this._length = length;
+    this._length = newlength;
   }
 
-  set students(students) {
-    if (!Array.isArray(students)) {
-      throw new TypeError('Students must be an array of strings');
+  set students(studArray) {
+    if (!Array.isArray(studArray)) {
+      throw new TypeError('Students must be an array');
     }
-    this._students = students;
+    this._students = studArray;
   }
 }
